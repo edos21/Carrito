@@ -1,0 +1,9 @@
+.producto{
+	float:left;
+	margin:5px;
+}
+
+.producto img{
+	width: 100px;
+	height: 100px;
+}
