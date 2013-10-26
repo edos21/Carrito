@@ -1,6 +1,6 @@
 <?php
-	include 'conexion.php';
-	$query = mysql_query('SELECT * FROM productos');
+	include 'lib/conexion.php';
+	include 'lib/query.php';
 ?>
 
 <!Doctype html>
@@ -17,21 +17,16 @@
 		</header>
 		<section>
 
-		<?php
-			while ($q = mysql_fetch_array($query)) {
-		?>
+		<?php foreach ($productos as $producto): ?>
 			<div class="producto">
 				<center>
-					<img src="img/productos/<?php echo $q['imagen'] ?>"><br>
-					<span><?php echo $q['nombre'] ?></span><br>
-					<span>Precio: <?php echo $q['precio'] ?></span><br>
-					<a href="detalles.php?id=<?php echo $q['id'] ?>">Ver</a>
+					<img src="img/productos/<?php echo $producto['imagen'] ?>"><br>
+					<span><?php echo $producto['nombre'] ?></span><br>
+					<span>Precio: <?php echo $producto['precio'] ?></span><br>
+					<a href="detalles.php?id=<?php echo $producto['id'] ?>">Ver</a>
 				</center>
 			</div>
-		<?php
-			}
-		?>
-
+		<?php endforeach; ?>
 		</section>
 	</body>
 </html>
